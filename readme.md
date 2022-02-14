@@ -27,3 +27,7 @@
 > Faire le lien avec la BDD via un ORM
 >
 > Fournir les routes pour toutes les actions de toutes les tables créées.
+
+## Lien Trello : 
+
+> https://trello.com/b/4vX9IC6U/projetdevb3
