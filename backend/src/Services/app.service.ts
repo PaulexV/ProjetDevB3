@@ -5,4 +5,8 @@ export class AppService {
   getHello(): string {
     return 'Hello World!';
   }
+
+  findAll(): string {
+    return 'Returns all data';
+  }
 }
