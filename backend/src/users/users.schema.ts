@@ -2,10 +2,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Invoice } from '../invoices/invoices.schema';
 
-export type UserDocument = User & mongoose.Document;
+export type UserDocument = user & mongoose.Document;
 
 @Schema()
-export class User {
+export class user {
   @Prop()
   first_name: string;
 
@@ -22,4 +22,4 @@ export class User {
   invoice: Invoice[];
 }
 
-export const UserSchema = SchemaFactory.createForClass(User);
+export const UserSchema = SchemaFactory.createForClass(user);
