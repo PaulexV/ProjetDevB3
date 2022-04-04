@@ -18,7 +18,7 @@ export class user {
   @Prop()
   creationDate: Date;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Invoice' })
+  @Prop()
   invoice: Invoice[];
 }
 

@@ -18,7 +18,7 @@ export class Invoice {
   @Prop()
   total: number;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Product' })
+  @Prop()
   ProductInOrder: Product[];
 }
 
