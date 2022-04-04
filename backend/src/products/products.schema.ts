@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import * as mongoose from 'mongoose';
 
-export type ProductDocument = Product & Document;
+export type ProductDocument = Product & mongoose.Document;
 
 @Schema()
 export class Product {

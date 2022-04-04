@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Product } from '../products/products.schema';
 
-export type InvoiceDocument = Invoice & Document;
+export type InvoiceDocument = Invoice & mongoose.Document;
 
 @Schema()
 export class Invoice {
@@ -19,7 +19,7 @@ export class Invoice {
   total: number;
 
   @Prop()
-  ProductInOrder: Product[];
+  ProductInOrder: Product;
 }
 
 export const InvoiceSchema = SchemaFactory.createForClass(Invoice);
