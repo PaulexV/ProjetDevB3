@@ -93,4 +93,20 @@ export class DatabaseCreator {
         console.log(err.message);
       });
   }
+
+  deleteDocument(dbName: string, query: Document) {
+    MongoClient.connect('mongodb://127.0.0.1/')
+      .then((client: MongoClient) => {
+        const connect = client.db('ProjetDev');
+        // Delete Document
+        connect.collection(dbName).deleteOne(query, (err) => {
+          if (err) throw err;
+          console.log('Document deleted');
+        });
+      })
+      .catch((err: InternalServerErrorException) => {
+        // Handling the error
+        console.log(err.message);
+      });
+  }
 }
