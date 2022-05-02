@@ -1,9 +1,7 @@
 import React from "react";
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
@@ -47,7 +45,6 @@ class CardDisplay extends React.Component {
                 direction="row"
                 justifyContent="center"
                 alignItems="flex-start"
-                // marginLeft={6}
                 marginTop={3}
                 >
         {items.map((item) => ( 
