@@ -53,6 +53,27 @@ export class DatabaseCreator {
         const connect = client.db('ProjetDev');
         // New Document
         connect.collection(dbName).insertOne(props);
+        console.log(`document ${props} created`);
+      })
+      .catch((err: InternalServerErrorException) => {
+        // Handling the error
+        console.log(err.message);
+      });
+  }
+
+  getDocuments(dbName: string) {
+    MongoClient.connect('mongodb://127.0.0.1/')
+      .then((client: MongoClient) => {
+        const connect = client.db('ProjetDev');
+        // Get Documents
+        connect
+          .collection(dbName)
+          .find({})
+          .toArray((err, docs) => {
+            if (err) throw err;
+            console.log(docs);
+            return docs;
+          });
       })
       .catch((err: InternalServerErrorException) => {
         // Handling the error

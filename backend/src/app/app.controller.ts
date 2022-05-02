@@ -1,4 +1,5 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { Document } from 'mongodb';
 import { DatabaseCreator } from 'src/Helpers/DatabaseCreator';
 import { AppService } from './app.service';
 
@@ -9,19 +10,42 @@ export class AppController {
     private readonly mongo: DatabaseCreator,
   ) {}
 
-  @Get('all')
-  findAll(): string {
-    return this.appService.findAll();
-  }
-
   @Get()
   home(): string {
     return this.appService.home();
   }
 
-  @Get('tests')
-  tests(): string {
-    this.mongo.getCollections();
-    return this.appService.tests();
+  @Get('create/collection/:dbName')
+  newCollection(@Param('dbName') dbName: string) {
+    this.mongo.createCollection(dbName);
+  }
+
+  @Get('delete/collection/:dbName')
+  removeCollection(@Param('dbName') dbName: string) {
+    this.mongo.deleteCollection(dbName);
+  }
+
+  @Get('create/document/:dbName')
+  newDocument(@Param('dbName') dbName: string, props: Document) {
+    this.mongo.createDocument(dbName, props);
+  }
+
+  @Get('get/documents/:dbName')
+  getDocuments(@Param('dbName') dbName: string) {
+    this.mongo.getDocuments(dbName);
+  }
+
+  @Get('update/document/:dbName')
+  updateDocument(
+    @Param('dbName') dbName: string,
+    query: Document,
+    props: Document,
+  ) {
+    this.mongo.updateDocument(dbName, query, props);
+  }
+
+  @Get('delete/document/:dbName')
+  deleteDocument(@Param('dbName') dbName: string, props: Document) {
+    this.mongo.deleteDocument(dbName, props);
   }
 }
