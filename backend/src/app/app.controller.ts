@@ -9,4 +9,9 @@ export class AppController {
   findAll(): string {
     return this.appService.findAll();
   }
+
+  @Get()
+  home(): string {
+    return this.appService.home();
+  }
 }

@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from '../users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseCreator } from 'src/Helpers/DatabaseCreator';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { AppService } from './app.service';
     invoicesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DatabaseCreator],
 })
 export class AppModule {}
