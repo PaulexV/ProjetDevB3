@@ -1,17 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { DatabaseCreator } from 'src/Helpers/DatabaseCreator';
 
 @Injectable()
 export class AppService {
-  findAll(): string {
-    return 'Returns all data';
-  }
+  mongo: DatabaseCreator;
 
   home(): string {
     return 'This is the home page.';
-  }
-
-  createCollection(dbName: string) {
-    this.createCollection(dbName);
-    return 'collection created';
   }
 }
