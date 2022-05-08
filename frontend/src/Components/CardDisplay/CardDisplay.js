@@ -22,7 +22,7 @@ class CardDisplay extends React.Component {
     // execute the code 
     componentDidMount() {
         fetch(
-          "http://localhost:3000/products")
+          "http://localhost:3002/products")
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
